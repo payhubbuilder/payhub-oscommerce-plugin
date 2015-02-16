@@ -8,14 +8,14 @@
   Copyright (c) 2008 osCommerce
 */
 
-  class PAYHUB {
+  class payhub_checkout {
     var $code, $title, $description, $enabled;
 
 // class constructor
-    function payhub() {
+    function payhub_checkout() {
       global $order;
       
-      $this->code = 'payhub';
+      $this->code = 'payhub_checkout';
       $this->title = MODULE_PAYMENT_PAYHUB_TEXT_TITLE;
       $this->public_title = MODULE_PAYMENT_PAYHUB_TEXT_PUBLIC_TITLE;
       # add notice if in demo mode
@@ -86,7 +86,7 @@
                                               array('title' => 'Card Expiration Date',
                                                     'field' => tep_draw_pull_down_menu('cc_expires_month', $expires_month) . '&nbsp;' . tep_draw_pull_down_menu('cc_expires_year', $expires_year)),
                                               array('title' => 'CVV/CID (Security Code)',
-                                                    'field' => tep_draw_input_field('cc_cvc_nh-dns', '', 'size="5" maxlength="4"'))));
+                                                    'field' => tep_draw_input_field('cc_cvc_nh-dns', '', 'size="5" maxlength="4" autocomplete="off"'))));
 
 
       return $confirmation;
